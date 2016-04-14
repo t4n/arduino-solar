@@ -1,12 +1,9 @@
-# arduino-solar
-## Arduino-kompatibles Solarlicht mit Supercaps
+# Arduino-kompatibles Solarlicht mit Supercaps
 
-arduino-solar/img:
+* arduino-solar/img:
   Fotos vom Aufbau des Solarlichts
-  
-arduino-solar/pcb:
+* arduino-solar/pcb:
   Layout der Streifenrasterplatine
-  
-arduino-solar/schem:
+* arduino-solar/schem:
   Schaltung des Solarlichts
   

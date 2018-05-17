@@ -82,6 +82,10 @@ int aktuelleHelligkeit(void)
   static int hell2 = SCHWELLWERT_DUNKEL;
   static int hell3 = SCHWELLWERT_DUNKEL;
   static int hell4 = SCHWELLWERT_DUNKEL;
+
+  // Die erste AD-Wandlung nach dem Aufwachen kann evtl. ungenau
+  // sein, sie wird daher verworfen (geändert: 2018-05-17).
+  /* int dummy = */ analogRead(FOTODIODE);
   
   hell4 = hell3, hell3 = hell2, hell2 = hell1;
   hell1 = analogRead(FOTODIODE);
@@ -115,10 +119,6 @@ void controller_in_schlafmodus_versetzen(void)
   // Timer und AD-Wandler werden wieder aktiviert.
   PRR = 0x00;
   ADCSRA |= (1 << ADEN);
-
-  // Die erste AD-Wandlung nach dem Aufwachen kann evtl. ungenau
-  // sein, sie wird daher einfach verworfen.
-  /* int dummy = */ aktuelleHelligkeit();
 }
 
 // ---------------------------------------------------------------------------
